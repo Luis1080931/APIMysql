@@ -228,6 +228,93 @@
     
     <hr>
 
-    <h3> REQUERIMIENTO DESACTIVAR USUARIOS  </h3>
+    <h3> REQUERIMIENTO ELIMINAR USUARIOS  </h3>
+
+    <table>
+        <tr>
+            <td> NUMERO </td>
+            <td> 4 </td>
+        </tr>
+        <tr>
+            <td> NOMBRE DEL SERVICIO </td>
+            <td> ELIMINAR USUARIOS </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /usuarios/eliminar/1 </td>
+        </tr>
+        <tr>
+            <td> DESCRIPCION </td>
+            <td> PERMITE ELIMINAR USUARIOS REGISTRADOS EN LA BASE DE DATOS </td>
+        </tr>
+        <tr>
+            <td> VERBO HTTP </td>
+            <td> DELETE </td>
+        </tr>
+        <tr>
+            <td> HEADER </td>
+            <td> NULL </td>
+        </tr>
+        <tr>
+            <td> USUARIO </td>
+            <td> ADMINISTRADOR </td>
+        </tr>
+        <tr>
+            <td> PETICION BODY-FORM-DATA </td>
+            <td> NULL </td>
+        </tr>
+        <tr>
+            <td> RESPUESTAS JSON </td>
+            <td>
+                CORRECTO: 
+                STATUS: 200
+                BODY JSON: 
+                {
+                    STATUS: 200,
+                    MESSAGE: 'SE ELIMINO CON EXITO EL USUARIO'
+                },
+
+                INCORRECTO: 
+                STATUS: 403
+                BODY JSON: 
+                {
+                    STATUS: 403
+                    MESSAGE: 'NO SE ELIMINO EL USUARIO'
+                },
+
+                ERROR: 
+                STATUS: 500
+                BODY JSON:
+                {
+                    STATUS: 500,
+                    MESSAGE: ERROR DEL SERVIDOR + ERROR
+                }
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> REQUERIMIENTO BUSCAR USUARIOS </h3>
+
+    <table>
+        <tr>
+            <td> NUMERO </td>
+            <td> 5 </td>
+        </tr>
+        <tr>
+            <td> NOMBRE DEL SERVICIO </td>
+            <td> BUSCAR USUARIOS </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /usuarios/buscar/1 </td>
+        </tr>
+        <tr>
+            <td> DESCRIPCION </td>
+            <td> PERMITE BUSCAR UN USUARIO EN ESPECIFICO DENTRO DE LA BASE DE DATOS </td>
+        </tr>
+    </table>
+
 </body>
 </html>
