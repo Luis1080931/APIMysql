@@ -1,5 +1,6 @@
 import { query } from "express";
 import { pool } from "../database/conexion.js"; 
+import { validationResult } from "express-validator";
 
 export const listarUsuarios = async (req, res) => {
     try {
@@ -26,9 +27,14 @@ export const listarUsuarios = async (req, res) => {
 
 export const registrarUsuarios = async (req, res) => {
     try {
+
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            return res.status(400).json(errors)
+        }
         
-        const{nombres, direccion, telefono, correo, rol, password} = req.body
-        const[rows] = await pool.query(`INSERT INTO usuarios (nombres, direccion, telefono, correo, rol, password) values (?, ?, ?, ?, ?, ?)`, [nombres, direccion, telefono, correo, rol, password])
+        const{nombres, direccion, telefono, correo, rol} = req.body
+        const[rows] = await pool.query(`INSERT INTO usuarios (nombres, direccion, telefono, correo, rol) values (?, ?, ?, ?, ?)`, [nombres, direccion, telefono, correo, rol])
 
         if(rows.affectedRows>0){
             res.status(200).json({
