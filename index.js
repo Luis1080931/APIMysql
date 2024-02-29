@@ -1,6 +1,7 @@
 import express  from 'express' 
 import body_parser from 'body-parser'
 import routeUsuarios from './src/routes/routes.usuarios.js'
+import rutaValidacion from './src/routes/route.autenticacion.js'
 
 const servidor = express()
 
@@ -24,6 +25,7 @@ servidor.get('/document', (req, res) => {
 })
 
 servidor.use('/usuarios', routeUsuarios)
+servidor.use(rutaValidacion)
 
 servidor.listen(3000, () => {
     console.log("Servidor rodando na porta 3000")
